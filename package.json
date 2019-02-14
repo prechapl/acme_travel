@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "DATABASE_URL=postgres://localhost/acme_travel nodemon db.js"
+    "start": "DATABASE_URL=postgres://localhost/acme_travel nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.4",
     "nodemon": "^1.18.10",
     "pg": "^7.8.0",
     "sequelize": "^4.42.0"
