@@ -38,21 +38,28 @@ const syncAndSeed = () => {
         Stay.create({ day: 5, userId: curly.id, hotelId: hilton.id }),
       ])
       // return Stay.findAll();
-      const moeStays = await ( Stay.findAll({
-          where: { userId: 1 }
-        })
-      );
-      const larryStays = await ( Stay.findAll({
-          where: { userId: 2 }
-        })
-      );
-      const curlyStays = await ( Stay.findAll({
-          where: { userId: 3 }
-        })
-      );
-      return [ moeStays, larryStays, curlyStays ]
+    //   const moeStays = await ( Stay.findAll({
+    //       where: { userId: 1 }
+    //     })
+    //   );
+    //   const larryStays = await ( Stay.findAll({
+    //       where: { userId: 2 }
+    //     })
+    //   );
+    //   const curlyStays = await ( Stay.findAll({
+    //       where: { userId: 3 }
+    //     })
+    //   );
+    //   return [ moeStays, larryStays, curlyStays ]
     })
 
+
+};
+
+const moeStays = async () => {
+  const moes = await Stay.findAll({ 
+    where: { userId: 1 }});
+  return moes;
 };
 
 // syncAndSeed()
@@ -70,4 +77,5 @@ const syncAndSeed = () => {
 
 module.exports = {
   syncAndSeed,
+  moeStays
 }

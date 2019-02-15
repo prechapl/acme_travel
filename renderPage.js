@@ -1,22 +1,28 @@
-module.exports = (user) => (`<!DOCTYPE html>
+// const { moeStays }= require('./db')
+ 
+// const userStays = syncAndSeed()
+// const moeStays = moeStays()
+
+module.exports = (stays) => (`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>ACME TRAVEL</title>
 </head>
 <body>
-    <div>
-      ${ UserId}
-    </div>
-    <div>
-        ${ UserId }
-    </div>
-    <div>
-        ${ UserId }
-    </div>
+    <h1>
+      ${ stays }
+    </h1>
+    <h1>
+        ${ stays }
+    </h1>
+    <h1>
+        ${ stays }
+    </h1>
 
 </body>
 </html>`)
+
 
 // const renderContents = (contents)=> {
 //   return `
