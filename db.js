@@ -2,7 +2,6 @@ const Sequelize = require('sequelize');
 const conn = new Sequelize(process.env.DATABASE_URL);
 // const conn = new Sequelize(process.env.DATABASE_URL, 'MacPro6', '', { dialect: 'postgres' });
 
-
 const User = conn.define('user', {
   name: Sequelize.STRING
 });
@@ -13,11 +12,10 @@ const Stay = conn.define('stay', {
   day: Sequelize.INTEGER
 });
 
-
 Stay.belongsTo(Hotel);
 Stay.belongsTo(User);
-User.hasMany(Stay);
-Hotel.hasMany(Stay);
+// User.hasMany(Stay);
+// Hotel.hasMany(Stay);
 
 const userNames = ['moe', 'larry', 'curly'];
 
@@ -52,30 +50,20 @@ const syncAndSeed = () => {
     //   );
     //   return [ moeStays, larryStays, curlyStays ]
     })
-
-
 };
 
-const moeStays = async () => {
-  const moes = await Stay.findAll({ 
-    where: { userId: 1 }});
-  return moes;
-};
-
-// syncAndSeed()
-
-// const stays = async () => {
-//   const moeStays = await (
-//       Stay.findAll({
-//       where: { userId: 1 }
-//     })
-//   );
-// return moeStays
-// }
-
-// console.log(stays())
+// const moeStays = () => {
+//   return Stay.findAll({where: { userId: 1 }})
+//   // .then((stays => {
+//   //   console.log(stays)}))
+// };
+// moeStays()
+  // .then(())
+// console.log(moeStays())
 
 module.exports = {
   syncAndSeed,
-  moeStays
+  Stay,
+  Hotel,
+  User
 }

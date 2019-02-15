@@ -1,5 +1,5 @@
 // const { moeStays }= require('./db')
- 
+
 // const userStays = syncAndSeed()
 // const moeStays = moeStays()
 
@@ -56,3 +56,28 @@ module.exports = (stays) => (`<!DOCTYPE html>
 //     </html>
 //   `;
 // };
+
+
+// const moeStays = () => {
+//   return Stay.findAll({where: { userId: 1 }})
+//   // .then((stays => {
+//   //   console.log(stays)}))
+// };
+// moeStays()
+  // .then(())
+// console.log(moeStays())
+
+      // return Stay.findAll();
+    //   const moeStays = await ( Stay.findAll({
+    //       where: { userId: 1 }
+    //     })
+    //   );
+    //   const larryStays = await ( Stay.findAll({
+    //       where: { userId: 2 }
+    //     })
+    //   );
+    //   const curlyStays = await ( Stay.findAll({
+    //       where: { userId: 3 }
+    //     })
+    //   );
+    //   return [ moeStays, larryStays, curlyStays ]
