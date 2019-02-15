@@ -9,13 +9,13 @@ const Hotel = conn.define('hotel', {
   name: Sequelize.STRING
 });
 const Stay = conn.define('stay', {
-  day: Sequelize.INTEGER
+  day: Sequelize.INTEGER,
+  hotelName: Sequelize.STRING,
+  userName: Sequelize.STRING
 });
 
 Stay.belongsTo(Hotel);
 Stay.belongsTo(User);
-// User.hasMany(Stay);
-// Hotel.hasMany(Stay);
 
 const userNames = ['moe', 'larry', 'curly'];
 
@@ -28,38 +28,16 @@ const syncAndSeed = () => {
       const [ sheraton, hilton ] = await Promise.all( hotelNames.map( name => Hotel.create({ name })));
 
       await Promise.all([
-        Stay.create({ day: 3, userId: moe.id, hotelId: sheraton.id }),
-        Stay.create({ day: 4, userId: moe.id, hotelId: sheraton.id }),
-        Stay.create({ day: 5, userId: moe.id, hotelId: hilton.id }),
-        Stay.create({ day: 19, userId: larry.id, hotelId: hilton.id }),
-        Stay.create({ day: 4, userId: curly.id, hotelId: sheraton.id }),
-        Stay.create({ day: 5, userId: curly.id, hotelId: hilton.id }),
+        // Stay.create({ day: 3, userId: moe.id, hotelId: sheraton.id }),
+        Stay.create({ day: 3, userName: 'Moe', hotelName: 'Sheraton' }),
+        Stay.create({ day: 4, userName: 'Moe', hotelName: 'Sheraton' }),
+        Stay.create({ day: 5, userName: 'Moe', hotelName: 'Hilton' }),
+        Stay.create({ day: 19, userName: 'Larry', hotelName: 'Hilton' }),
+        Stay.create({ day: 4, userName: 'Curly', hotelName: 'Sheraton' }),
+        Stay.create({ day: 5, userName: 'Curly', hotelName: 'Hilton' }),
       ])
-      // return Stay.findAll();
-    //   const moeStays = await ( Stay.findAll({
-    //       where: { userId: 1 }
-    //     })
-    //   );
-    //   const larryStays = await ( Stay.findAll({
-    //       where: { userId: 2 }
-    //     })
-    //   );
-    //   const curlyStays = await ( Stay.findAll({
-    //       where: { userId: 3 }
-    //     })
-    //   );
-    //   return [ moeStays, larryStays, curlyStays ]
     })
 };
-
-// const moeStays = () => {
-//   return Stay.findAll({where: { userId: 1 }})
-//   // .then((stays => {
-//   //   console.log(stays)}))
-// };
-// moeStays()
-  // .then(())
-// console.log(moeStays())
 
 module.exports = {
   syncAndSeed,

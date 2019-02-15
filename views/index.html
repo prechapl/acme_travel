@@ -4,6 +4,38 @@
   <title>Document</title>
 </head>
 <body>
-  <%= stays %>
+  <div>
+  <h2>Moe</h2>
+  <div><% stays.forEach(stay => { %>
+    <%  if (stay.userName === 'Moe'){ %>
+      <ul>
+      <li>stayed at <%= stay.hotelName %></li>
+      <li>for <%= stay.day %> days</li>
+    </ul>
+     <% }}) %>
+    </div>
+  </div>
+  <div>
+      <h2>Larry</h2>
+      <div><% stays.forEach(stay => { %>
+        <%  if (stay.userName === 'Larry'){ %>
+          <ul>
+          <li>stayed at <%= stay.hotelName %></li>
+          <li>for <%= stay.day %> days</li>
+        </ul>
+         <% }}) %>
+        </div>
+      </div>
+      <div>
+          <h2>Curly</h2>
+          <div><% stays.forEach(stay => { %>
+            <%  if (stay.userName === 'Curly'){ %>
+              <ul>
+              <li>stayed at <%= stay.hotelName %></li>
+              <li>for <%= stay.day %> days</li>
+            </ul>
+             <% }}) %>
+            </div>
+          </div>
 </body>
 </html>

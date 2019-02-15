@@ -1,16 +1,13 @@
 const express = require('express');
 const app = express();
 const ejs = require('ejs')
-// const bodyParser = require('body-parser');
-const { moeStays, Stay, Hotel, User } = require('./db')
+const { Stay } = require('./db')
 
-// app.use(bodyParser.urlencoded({extended: false}))
 app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 
 app.get('/', async (req, res, next) => {
-  await Stay.findAll({where: { userId: 1 }})
-  // .then( stays => console.log(stays))
+  await Stay.findAll()
   .then( stays => res.render('index', { stays }))
   .catch(next)
 
